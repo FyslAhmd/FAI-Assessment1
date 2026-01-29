@@ -1,16 +1,70 @@
-# React + Vite
+# Repair Shop Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive dashboard application for managing repair shop operations including call logs, appointments, and user settings.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React** - UI library
+- **Vite** - Build tool and dev server
+- **Tailwind CSS v4** - Utility-first styling
+- **React Router DOM** - Client-side routing
+- **Framer Motion** - Animations and transitions
+- **Highcharts** - Interactive charts
+- **Lucide React** - Icon library
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Dashboard Overview
+- Statistics cards displaying key metrics (total calls, resolved, pending, satisfaction rate)
+- Interactive call trends chart with area spline visualization
+- Recent activity feed
+- Top repair requests breakdown
 
-## Expanding the ESLint configuration
+### Call Logs
+- Filterable call list by date range, status, and outcome
+- Detailed call view with customer information
+- Call duration tracking and timestamps
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Appointments
+- Appointment statistics overview
+- Shareable booking link
+- Paginated appointments table with status indicators
+- Client and scheduling details
+
+### Settings
+- User profile management (view and edit modes)
+- Profile image section
+- Store information configuration
+
+## Responsive Design
+
+Fully responsive across all devices:
+- Mobile (< 640px)
+- Tablet (640px - 1024px)
+- Desktop (> 1024px)
+
+## Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── layout/          # Sidebar, Header, DashboardLayout
+│   ├── dashboard/       # Stats, Chart, Activity, RepairRequests
+│   ├── callLogs/        # CallList, CallDetails
+│   └── appointments/    # Stats, BookingLink, Table
+├── pages/               # DashboardOverview, CallLogs, Appointments, Settings
+└── main.jsx             # App entry point
+```
