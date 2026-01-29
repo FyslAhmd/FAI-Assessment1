@@ -9,6 +9,7 @@ function CallTrendsChart() {
   const [timePeriod, setTimePeriod] = useState("This Week")
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef(null)
+  const chartRef = useRef(null)
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -18,6 +19,16 @@ function CallTrendsChart() {
     }
     document.addEventListener("mousedown", handleClickOutside)
     return () => document.removeEventListener("mousedown", handleClickOutside)
+  }, [])
+
+  useEffect(() => {
+    function handleResize() {
+      if (chartRef.current && chartRef.current.chart) {
+        chartRef.current.chart.reflow()
+      }
+    }
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
   }, [])
 
   const options = {
@@ -110,19 +121,19 @@ function CallTrendsChart() {
 
   return (
     <div
-      className="p-6 rounded-2xl"
+      className="p-4 sm:p-6 rounded-2xl"
       style={{
         boxSizing: "border-box",
         border: "1px solid rgba(43, 127, 255, 0.2)",
         background: "rgba(15, 23, 43, 0.5)",
       }}
     >
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-0 mb-4">
         <div>
-          <h3 className="text-lg text-white">
+          <h3 className="text-base sm:text-lg text-white">
             Call Trends - {timePeriod}
           </h3>
-          <p className="text-sm text-slate-400 mt-1">Total: 472 calls</p>
+          <p className="text-xs sm:text-sm text-slate-400 mt-1">Total: 472 calls</p>
         </div>
 
         <div className="relative" ref={dropdownRef}>
@@ -168,7 +179,7 @@ function CallTrendsChart() {
         </div>
       </div>
 
-      <HighchartsReact highcharts={Highcharts} options={options} />
+      <HighchartsReact ref={chartRef} highcharts={Highcharts} options={options} />
     </div>
   );
 }

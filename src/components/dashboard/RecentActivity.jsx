@@ -26,7 +26,7 @@ const activities = [
 function RecentActivity() {
   return (
     <div
-      className="p-6 rounded-2xl h-full"
+      className="p-4 sm:p-6 rounded-2xl h-full"
       style={{
         boxSizing: "border-box",
         border: "1px solid rgba(43, 127, 255, 0.2)",

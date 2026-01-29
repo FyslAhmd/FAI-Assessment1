@@ -14,7 +14,7 @@ function StatsCard({ title, value, change, icon: Icon, iconColor, iconBg }) {
         boxShadow: "0 8px 30px rgba(43, 127, 255, 0.15)",
         borderColor: "rgba(43, 127, 255, 0.4)",
       }}
-      className="p-6 relative overflow-hidden cursor-pointer"
+      className="p-4 sm:p-6 relative overflow-hidden cursor-pointer"
       style={{
         boxSizing: "border-box",
         border: "1px solid rgba(43, 127, 255, 0.2)",
@@ -26,7 +26,7 @@ function StatsCard({ title, value, change, icon: Icon, iconColor, iconBg }) {
       <div className="flex items-start justify-between">
         <div className="flex-1">
           <p className="text-sm text-slate-400 mb-2">{title}</p>
-          <h3 className="text-4xl text-white mb-2">{value}</h3>
+          <h3 className="text-2xl sm:text-3xl lg:text-4xl text-white mb-2">{value}</h3>
 
           <p
             className={`text-sm ${
@@ -43,7 +43,7 @@ function StatsCard({ title, value, change, icon: Icon, iconColor, iconBg }) {
         </div>
 
         <div
-          className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0"
+          className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-xl sm:rounded-2xl flex items-center justify-center shrink-0"
           style={{
             background: iconBg,
             boxShadow: `0 4px 20px ${iconColor}40`,

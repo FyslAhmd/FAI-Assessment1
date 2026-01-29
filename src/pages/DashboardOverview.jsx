@@ -58,12 +58,12 @@ const statsData = [
 function DashboardOverview() {
   return (
     <div 
-      className="min-h-screen -m-6 lg:-m-8 p-6 lg:p-8"
+      className="min-h-screen -m-4 sm:-m-6 lg:-m-8 p-4 sm:p-6 lg:p-8"
       style={{
         background: "linear-gradient(137.23deg, rgba(1.89, 5.94, 23.59, 1) -34.38%, rgba(22.25, 36.5, 85.6, 1) 54.595%, rgba(15, 23, 43, 1) 143.569%)",
       }}
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-4 sm:mb-6">
         {statsData.map((stat, index) => (
           <StatsCard key={index} {...stat} />
         ))}
@@ -71,7 +71,7 @@ function DashboardOverview() {
 
       <CallTrendsChart />
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 mt-4 sm:mt-6">
         <RecentActivity />
         <TopRepairRequests />
       </div>
