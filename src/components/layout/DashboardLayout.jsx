@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Sidebar from "./Sidebar"
+import Header from "./Header"
 
 function DashboardLayout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -13,8 +14,12 @@ function DashboardLayout({ children }) {
       />
 
       {/* Main Content */}
-      <main className="flex-1 lg:ml-0 min-h-screen">
-        <div className="p-6 lg:p-8">
+      <main className="flex-1 lg:ml-0 min-h-screen flex flex-col">
+        {/* Header */}
+        <Header />
+        
+        {/* Page Content */}
+        <div className="flex-1 p-6 lg:p-8">
           {children}
         </div>
       </main>
