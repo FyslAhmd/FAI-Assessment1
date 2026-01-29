@@ -83,7 +83,7 @@ function Dropdown({ options, value, onChange }) {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="px-4 py-2.5 rounded-lg text-sm text-white flex items-center gap-2 min-w-30 justify-between"
+        className="px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm text-white flex items-center gap-1 sm:gap-2 min-w-24 sm:min-w-30 justify-between"
         style={{
           background: "rgba(17, 27, 60, 0.8)",
         }}
@@ -132,13 +132,13 @@ function CallLogs() {
 
   return (
     <div
-      className="min-h-screen -m-6 lg:-m-8 p-6 lg:p-8"
+      className="min-h-screen -m-4 sm:-m-6 lg:-m-8 p-4 sm:p-6 lg:p-8"
       style={{
         background: "linear-gradient(137.23deg, rgba(1.89, 5.94, 23.59, 1) -34.38%, rgba(22.25, 36.5, 85.6, 1) 54.595%, rgba(15, 23, 43, 1) 143.569%)",
       }}
     >
-      <div className="flex flex-col lg:flex-row items-stretch lg:items-center gap-6 mb-6">
-        <div className="lg:w-1/2 relative">
+      <div className="flex flex-col lg:flex-row items-stretch lg:items-center gap-4 sm:gap-6 mb-4 sm:mb-6">
+        <div className="w-full lg:w-1/2 relative">
           <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
           <input
             type="text"
@@ -153,14 +153,14 @@ function CallLogs() {
           />
         </div>
 
-        <div className="lg:w-1/2 flex flex-wrap gap-3 justify-end">
+        <div className="w-full lg:w-1/2 flex flex-wrap gap-2 sm:gap-3 justify-start lg:justify-end">
           <Dropdown options={typeOptions} value={selectedType} onChange={setSelectedType} />
           <Dropdown options={issueOptions} value={selectedIssue} onChange={setSelectedIssue} />
           <Dropdown options={dateOptions} value={selectedDate} onChange={setSelectedDate} />
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         <CallList calls={callsData} selectedCall={selectedCall} onSelectCall={setSelectedCall} />
         <CallDetails call={selectedCall} />
       </div>

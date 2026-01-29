@@ -37,37 +37,37 @@ function CallDetails({ call }) {
       }}
     >
       <h3
-        className="text-lg text-white p-4"
+        className="text-base sm:text-lg text-white p-3 sm:p-4"
         style={{ borderBottom: "1px solid rgba(43, 127, 255, 0.2)" }}
       >
         Call Details
       </h3>
 
-      <div className="p-4 space-y-6">
-        <div className="grid grid-cols-2 gap-4">
+      <div className="p-3 sm:p-4 space-y-4 sm:space-y-6">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4">
           <div>
-            <p className="text-xs text-slate-400 mb-1">Phone Number</p>
-            <p className="text-white">{call.phoneNumber}</p>
+            <p className="text-[10px] sm:text-xs text-slate-400 mb-1">Phone Number</p>
+            <p className="text-sm sm:text-base text-white">{call.phoneNumber}</p>
           </div>
           <div>
-            <p className="text-xs text-slate-400 mb-1">Duration</p>
-            <p className="text-white ">{call.duration}</p>
+            <p className="text-[10px] sm:text-xs text-slate-400 mb-1">Duration</p>
+            <p className="text-sm sm:text-base text-white ">{call.duration}</p>
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4">
           <div>
-            <p className="text-xs text-slate-400 mb-1">Date & Time</p>
-            <p className="text-white ">{call.date} {call.time}</p>
+            <p className="text-[10px] sm:text-xs text-slate-400 mb-1">Date & Time</p>
+            <p className="text-sm sm:text-base text-white ">{call.date} {call.time}</p>
           </div>
           <div>
-            <p className="text-xs text-slate-400 mb-1">Issue Type</p>
-            <p className="text-white ">{call.issueType}</p>
+            <p className="text-[10px] sm:text-xs text-slate-400 mb-1">Issue Type</p>
+            <p className="text-sm sm:text-base text-white ">{call.issueType}</p>
           </div>
         </div>
 
         <div>
-          <p className="text-xs text-slate-400 mb-1">Call Type</p>
+          <p className="text-[10px] sm:text-xs text-slate-400 mb-1">Call Type</p>
           <span
             className="px-3 py-1 rounded-full text-xs  inline-block"
             style={{
@@ -81,12 +81,12 @@ function CallDetails({ call }) {
         </div>
 
         <div>
-          <p className="text-xs text-slate-400 mb-1">Outcome</p>
-          <p className="text-white ">{call.outcome}</p>
+          <p className="text-[10px] sm:text-xs text-slate-400 mb-1">Outcome</p>
+          <p className="text-sm sm:text-base text-white ">{call.outcome}</p>
         </div>
 
         <button
-          className="w-full py-3 flex items-center justify-center gap-2 text-[#c27aff] transition-all hover:opacity-90"
+          className="w-full py-2.5 sm:py-3 flex items-center justify-center gap-2 text-sm sm:text-base text-[#c27aff] transition-all hover:opacity-90"
           style={{
             background: "linear-gradient(90deg, rgba(172.87, 70.37, 255, 0.2), rgba(246.28, 50.53, 154.1, 0.2) 100%)",
             border: "1px solid rgba(173, 70, 255, 0.3)",
@@ -98,13 +98,13 @@ function CallDetails({ call }) {
         </button>
 
         <div>
-          <div className="flex items-center gap-2 mb-4">
-            <FileText size={18} className="text-slate-400" />
-            <p className="text-white ">Conversation Transcript</p>
+          <div className="flex items-center gap-2 mb-3 sm:mb-4">
+            <FileText size={16} className="text-slate-400 sm:w-[18px] sm:h-[18px]" />
+            <p className="text-sm sm:text-base text-white ">Conversation Transcript</p>
           </div>
 
           <div
-            className="space-y-4 p-4 rounded-xl"
+            className="space-y-3 sm:space-y-4 p-3 sm:p-4 rounded-xl"
             style={{
               background: "rgba(10, 18, 42, 0.5)",
             }}
@@ -112,12 +112,12 @@ function CallDetails({ call }) {
             {transcript.map((item, index) => (
               <div key={index}>
                 <p
-                  className="text-sm  mb-1"
+                  className="text-xs sm:text-sm mb-1"
                   style={{ color: item.role === "AI Assistant" ? "#10B981" : "#60A5FA" }}
                 >
                   {item.role}:
                 </p>
-                <p className="text-sm text-slate-300">{item.message}</p>
+                <p className="text-xs sm:text-sm text-slate-300">{item.message}</p>
               </div>
             ))}
           </div>
