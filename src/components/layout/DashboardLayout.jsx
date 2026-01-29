@@ -5,7 +5,7 @@ function DashboardLayout({ children, activeItem, setActiveItem }) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   return (
-    <div className="min-h-screen bg-slate-950 flex">
+    <div className="min-h-screen flex" style={{ background: "rgba(10, 18, 42, 1)" }}>
       {/* Sidebar */}
       <Sidebar
         activeItem={activeItem}
