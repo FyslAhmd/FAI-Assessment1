@@ -1,5 +1,7 @@
 import StatsCard from "../components/dashboard/StatsCard"
 import CallTrendsChart from "../components/dashboard/CallTrendsChart"
+import RecentActivity from "../components/dashboard/RecentActivity"
+import TopRepairRequests from "../components/dashboard/TopRepairRequests"
 import { Phone, Bot, ArrowLeftRight, Calendar, XCircle, Clock } from "lucide-react"
 
 const statsData = [
@@ -68,6 +70,11 @@ function DashboardOverview() {
       </div>
 
       <CallTrendsChart />
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+        <RecentActivity />
+        <TopRepairRequests />
+      </div>
     </div>
   )
 }

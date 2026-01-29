@@ -54,12 +54,14 @@ function Sidebar({ isOpen, setIsOpen }) {
 
       <aside
         className={cn(
-          "fixed lg:static inset-y-0 left-0 z-40 w-64 flex flex-col transition-transform duration-300",
+          "fixed inset-y-0 left-0 z-40 w-64 flex flex-col transition-transform duration-300 shrink-0",
           isOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0",
         )}
         style={{
           background: "rgba(17, 27, 60, 1)",
           borderRight: "1px solid rgba(43, 127, 255, 0.2)",
+          minWidth: "256px",
+          maxWidth: "256px",
         }}
       >
         <div className="p-6 flex justify-center">

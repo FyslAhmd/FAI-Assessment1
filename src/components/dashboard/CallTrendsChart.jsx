@@ -119,7 +119,7 @@ function CallTrendsChart() {
     >
       <div className="flex items-center justify-between mb-4">
         <div>
-          <h3 className="text-lg font-semibold text-white">
+          <h3 className="text-lg text-white">
             Call Trends - {timePeriod}
           </h3>
           <p className="text-sm text-slate-400 mt-1">Total: 472 calls</p>

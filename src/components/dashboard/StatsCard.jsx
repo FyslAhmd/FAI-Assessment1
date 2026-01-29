@@ -9,12 +9,18 @@ function StatsCard({ title, value, change, icon: Icon, iconColor, iconBg }) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className="p-6 relative overflow-hidden"
+      whileHover={{ 
+        y: -4,
+        boxShadow: "0 8px 30px rgba(43, 127, 255, 0.15)",
+        borderColor: "rgba(43, 127, 255, 0.4)",
+      }}
+      className="p-6 relative overflow-hidden cursor-pointer"
       style={{
         boxSizing: "border-box",
         border: "1px solid rgba(43, 127, 255, 0.2)",
         borderRadius: "16px",
         background: "rgba(15, 23, 43, 0.5)",
+        transition: "box-shadow 0.2s ease, border-color 0.2s ease",
       }}
     >
       <div className="flex items-start justify-between">

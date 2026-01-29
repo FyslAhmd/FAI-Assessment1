@@ -12,10 +12,10 @@ function DashboardLayout({ children }) {
     >
       <Sidebar isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
 
-      <main className="flex-1 lg:ml-0 min-h-screen flex flex-col">
+      <main className="flex-1 min-h-screen flex flex-col lg:ml-64">
         <Header />
 
-        <div className="flex-1 p-6 lg:p-8">{children}</div>
+        <div className="flex-1 p-6 lg:p-8 overflow-auto">{children}</div>
       </main>
     </div>
   );
