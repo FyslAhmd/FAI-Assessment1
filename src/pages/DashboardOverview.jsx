@@ -1,4 +1,5 @@
 import StatsCard from "../components/dashboard/StatsCard"
+import CallTrendsChart from "../components/dashboard/CallTrendsChart"
 import { Phone, Bot, ArrowLeftRight, Calendar, XCircle, Clock } from "lucide-react"
 
 const statsData = [
@@ -60,11 +61,13 @@ function DashboardOverview() {
         background: "linear-gradient(137.23deg, rgba(1.89, 5.94, 23.59, 1) -34.38%, rgba(22.25, 36.5, 85.6, 1) 54.595%, rgba(15, 23, 43, 1) 143.569%)",
       }}
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
         {statsData.map((stat, index) => (
           <StatsCard key={index} {...stat} />
         ))}
       </div>
+
+      <CallTrendsChart />
     </div>
   )
 }
