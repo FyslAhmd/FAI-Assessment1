@@ -1,65 +1,7 @@
-import { motion } from "framer-motion"
-import { Phone, Clock, CheckCircle } from "lucide-react"
+import { motion } from "framer-motion";
+import { Phone, Clock, CheckCircle } from "lucide-react";
 
-const callsData = [
-  {
-    id: 1,
-    phoneNumber: "+1 (555) 345-6789",
-    date: "2025-12-16",
-    time: "09:42 AM",
-    duration: "5:23",
-    status: "AI Resolved",
-    statusColor: "#10B981",
-    outcome: "Quote Provided",
-    issueType: "Screen",
-  },
-  {
-    id: 2,
-    phoneNumber: "+1 (555) 345-6789",
-    date: "2025-12-16",
-    time: "09:42 AM",
-    duration: "5:23",
-    status: "Warm Transfer",
-    statusColor: "#F97316",
-    outcome: "Escalated to technician",
-    issueType: "Software",
-  },
-  {
-    id: 3,
-    phoneNumber: "+1 (555) 345-6789",
-    date: "2025-12-16",
-    time: "09:42 AM",
-    duration: "5:23",
-    status: "Appointment",
-    statusColor: "#3B82F6",
-    outcome: "Appointment Booked",
-    issueType: "Battery",
-  },
-  {
-    id: 4,
-    phoneNumber: "+1 (555) 345-6789",
-    date: "2025-12-16",
-    time: "09:42 AM",
-    duration: "0:20",
-    status: "Dropped",
-    statusColor: "#EF4444",
-    outcome: "Call Dropped",
-    issueType: "Unknown",
-  },
-  {
-    id: 5,
-    phoneNumber: "+1 (555) 345-6789",
-    date: "2025-12-16",
-    time: "09:42 AM",
-    duration: "5:23",
-    status: "AI Resolved",
-    statusColor: "#10B981",
-    outcome: "Quote Provided",
-    issueType: "Screen",
-  },
-]
-
-function CallList({ selectedCall, onSelectCall }) {
+function CallList({ calls, selectedCall, onSelectCall }) {
   return (
     <div
       className="rounded-2xl h-full"
@@ -76,7 +18,7 @@ function CallList({ selectedCall, onSelectCall }) {
       </h3>
 
       <div className="space-y-3">
-        {callsData.map((call, index) => (
+        {calls.map((call, index) => (
           <motion.div
             key={call.id}
             initial={{ opacity: 0, y: 10 }}
@@ -85,20 +27,28 @@ function CallList({ selectedCall, onSelectCall }) {
             onClick={() => onSelectCall && onSelectCall(call)}
             className="p-4 cursor-pointer"
             style={{
-              borderBottom: selectedCall?.id === call.id ? "3px solid rgba(43, 127, 255, 1)" : "3px solid transparent",
+              borderBottom:
+                selectedCall?.id === call.id
+                  ? "3px solid rgba(43, 127, 255, 1)"
+                  : "3px solid transparent",
             }}
           >
             <div className="flex items-start justify-between mb-3">
               <div className="flex items-center gap-3">
                 <div
                   className="w-10 h-10 rounded-full flex items-center justify-center"
-                  style={{ background: "linear-gradient(135deg, #10B981 0%, #059669 100%)" }}
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #10B981 0%, #059669 100%)",
+                  }}
                 >
                   <Phone size={18} className="text-white" />
                 </div>
                 <div>
                   <p className="text-white">{call.phoneNumber}</p>
-                  <p className="text-xs text-slate-400">{call.date} • {call.time}</p>
+                  <p className="text-xs text-slate-400">
+                    {call.date} • {call.time}
+                  </p>
                 </div>
               </div>
               <span
@@ -136,7 +86,7 @@ function CallList({ selectedCall, onSelectCall }) {
         ))}
       </div>
     </div>
-  )
+  );
 }
 
-export default CallList
+export default CallList;

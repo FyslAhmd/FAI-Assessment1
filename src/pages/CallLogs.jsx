@@ -1,10 +1,69 @@
 import { useState, useRef, useEffect } from "react"
 import { Search, ChevronDown } from "lucide-react"
 import CallList from "../components/callLogs/CallList"
+import CallDetails from "../components/callLogs/CallDetails"
 
 const typeOptions = ["All Type", "Inbound", "Outbound", "Missed"]
 const issueOptions = ["All Issues", "Screen Repair", "Battery Replacement", "Software Issues", "Back Glass Repair"]
 const dateOptions = ["Today", "Yesterday", "This Week", "This Month", "This Year"]
+
+const callsData = [
+  {
+    id: 1,
+    phoneNumber: "+1 (555) 345-6789",
+    date: "2025-12-16",
+    time: "09:42 AM",
+    duration: "5:23",
+    status: "AI Resolved",
+    statusColor: "#10B981",
+    outcome: "Quote Provided",
+    issueType: "Screen Repair",
+  },
+  {
+    id: 2,
+    phoneNumber: "+1 (555) 345-6789",
+    date: "2025-12-16",
+    time: "09:42 AM",
+    duration: "5:23",
+    status: "Warm Transfer",
+    statusColor: "#F97316",
+    outcome: "Escalated to technician",
+    issueType: "Software Issues",
+  },
+  {
+    id: 3,
+    phoneNumber: "+1 (555) 345-6789",
+    date: "2025-12-16",
+    time: "09:42 AM",
+    duration: "5:23",
+    status: "Appointment",
+    statusColor: "#3B82F6",
+    outcome: "Appointment Booked",
+    issueType: "Battery Replacement",
+  },
+  {
+    id: 4,
+    phoneNumber: "+1 (555) 345-6789",
+    date: "2025-12-16",
+    time: "09:42 AM",
+    duration: "0:20",
+    status: "Dropped",
+    statusColor: "#EF4444",
+    outcome: "Call Dropped",
+    issueType: "Unknown",
+  },
+  {
+    id: 5,
+    phoneNumber: "+1 (555) 345-6789",
+    date: "2025-12-16",
+    time: "09:42 AM",
+    duration: "5:23",
+    status: "AI Resolved",
+    statusColor: "#10B981",
+    outcome: "Quote Provided",
+    issueType: "Screen Repair",
+  },
+]
 
 function Dropdown({ options, value, onChange }) {
   const [isOpen, setIsOpen] = useState(false)
@@ -69,7 +128,7 @@ function CallLogs() {
   const [selectedType, setSelectedType] = useState("All Type")
   const [selectedIssue, setSelectedIssue] = useState("All Issues")
   const [selectedDate, setSelectedDate] = useState("Today")
-  const [selectedCall, setSelectedCall] = useState(null)
+  const [selectedCall, setSelectedCall] = useState(callsData[0])
 
   return (
     <div
@@ -102,8 +161,8 @@ function CallLogs() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <CallList selectedCall={selectedCall} onSelectCall={setSelectedCall} />
-        <div></div>
+        <CallList calls={callsData} selectedCall={selectedCall} onSelectCall={setSelectedCall} />
+        <CallDetails call={selectedCall} />
       </div>
     </div>
   )
