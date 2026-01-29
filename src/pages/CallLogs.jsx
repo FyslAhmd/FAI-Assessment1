@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react"
 import { Search, ChevronDown } from "lucide-react"
+import CallList from "../components/callLogs/CallList"
 
 const typeOptions = ["All Type", "Inbound", "Outbound", "Missed"]
 const issueOptions = ["All Issues", "Screen Repair", "Battery Replacement", "Software Issues", "Back Glass Repair"]
@@ -68,6 +69,7 @@ function CallLogs() {
   const [selectedType, setSelectedType] = useState("All Type")
   const [selectedIssue, setSelectedIssue] = useState("All Issues")
   const [selectedDate, setSelectedDate] = useState("Today")
+  const [selectedCall, setSelectedCall] = useState(null)
 
   return (
     <div
@@ -76,7 +78,7 @@ function CallLogs() {
         background: "linear-gradient(137.23deg, rgba(1.89, 5.94, 23.59, 1) -34.38%, rgba(22.25, 36.5, 85.6, 1) 54.595%, rgba(15, 23, 43, 1) 143.569%)",
       }}
     >
-      <div className="flex flex-col lg:flex-row items-stretch lg:items-center gap-4 mb-6">
+      <div className="flex flex-col lg:flex-row items-stretch lg:items-center gap-6 mb-6">
         <div className="lg:w-1/2 relative">
           <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
           <input
@@ -97,6 +99,11 @@ function CallLogs() {
           <Dropdown options={issueOptions} value={selectedIssue} onChange={setSelectedIssue} />
           <Dropdown options={dateOptions} value={selectedDate} onChange={setSelectedDate} />
         </div>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <CallList selectedCall={selectedCall} onSelectCall={setSelectedCall} />
+        <div></div>
       </div>
     </div>
   )
