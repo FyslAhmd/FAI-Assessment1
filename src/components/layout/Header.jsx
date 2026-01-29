@@ -3,7 +3,7 @@ import { Bell } from "lucide-react";
 
 const pageNames = {
   "/dashboard": "Dashboard Overview",
-  "/call-logs": "Call Logs",
+  "/call-logs": "Call Logs & History",
   "/appointments": "Appointments",
   "/settings": "Settings",
 };
