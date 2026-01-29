@@ -1,15 +1,13 @@
 import { useState } from "react"
 import Sidebar from "./Sidebar"
 
-function DashboardLayout({ children, activeItem, setActiveItem }) {
+function DashboardLayout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   return (
     <div className="min-h-screen flex" style={{ background: "rgba(10, 18, 42, 1)" }}>
       {/* Sidebar */}
       <Sidebar
-        activeItem={activeItem}
-        setActiveItem={setActiveItem}
         isOpen={sidebarOpen}
         setIsOpen={setSidebarOpen}
       />

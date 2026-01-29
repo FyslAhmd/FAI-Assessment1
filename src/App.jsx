@@ -1,16 +1,23 @@
-import { useState } from "react"
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import DashboardLayout from "./components/layout/DashboardLayout"
+import DashboardOverview from "./pages/DashboardOverview"
+import CallLogs from "./pages/CallLogs"
+import Appointments from "./pages/Appointments"
+import Settings from "./pages/Settings"
 
 function App() {
-  const [activeItem, setActiveItem] = useState("dashboard")
-
   return (
-    <DashboardLayout activeItem={activeItem} setActiveItem={setActiveItem}>
-      {/* Main content will go here based on activeItem */}
-      <div className="flex items-center justify-center h-[calc(100vh-4rem)] text-slate-500">
-        <p className="text-xl">Main content</p>
-      </div>
-    </DashboardLayout>
+    <BrowserRouter>
+      <DashboardLayout>
+        <Routes>
+          <Route path="/" element={<Navigate to="/dashboard" replace />} />
+          <Route path="/dashboard" element={<DashboardOverview />} />
+          <Route path="/call-logs" element={<CallLogs />} />
+          <Route path="/appointments" element={<Appointments />} />
+          <Route path="/settings" element={<Settings />} />
+        </Routes>
+      </DashboardLayout>
+    </BrowserRouter>
   )
 }
 

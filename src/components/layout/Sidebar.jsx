@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   Home,
   Phone,
@@ -12,13 +13,18 @@ import {
 import { cn } from "../../lib/utils";
 
 const menuItems = [
-  { id: "dashboard", label: "Dashboard Overview", icon: Home },
-  { id: "call-logs", label: "Call Logs", icon: Phone },
-  { id: "appointments", label: "Appointments", icon: CalendarDays },
-  { id: "settings", label: "Settings", icon: Settings },
+  { id: "dashboard", label: "Dashboard Overview", icon: Home, path: "/dashboard" },
+  { id: "call-logs", label: "Call Logs", icon: Phone, path: "/call-logs" },
+  { id: "appointments", label: "Appointments", icon: CalendarDays, path: "/appointments" },
+  { id: "settings", label: "Settings", icon: Settings, path: "/settings" },
 ];
 
-function Sidebar({ activeItem, setActiveItem, isOpen, setIsOpen }) {
+function Sidebar({ isOpen, setIsOpen }) {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const isActive = (path) => location.pathname === path;
+
   return (
     <>
       {/* Mobile Menu Button */}
@@ -67,7 +73,7 @@ function Sidebar({ activeItem, setActiveItem, isOpen, setIsOpen }) {
         <nav className="flex-1 px-4 py-6 space-y-2">
           {menuItems.map((item) => {
             const Icon = item.icon;
-            const isActive = activeItem === item.id;
+            const itemIsActive = isActive(item.path);
 
             return (
               <motion.button
@@ -75,17 +81,17 @@ function Sidebar({ activeItem, setActiveItem, isOpen, setIsOpen }) {
                 whileHover={{ x: 4 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => {
-                  setActiveItem(item.id);
+                  navigate(item.path);
                   setIsOpen(false);
                 }}
                 className={cn(
                   "relative w-full flex items-center gap-3 px-5 py-3 text-left text-sm transition-all overflow-hidden",
                   "rounded-xl",
-                  !isActive &&
+                  !itemIsActive &&
                     "text-slate-400 hover:text-white hover:bg-white/5",
                 )}
                 style={
-                  isActive
+                  itemIsActive
                     ? {
                         // background: "linear-gradient(180deg, rgba(21, 34, 82, 1), rgba(17, 27, 60, 1) 100%)",
                         boxShadow: `
@@ -103,7 +109,7 @@ function Sidebar({ activeItem, setActiveItem, isOpen, setIsOpen }) {
                 }
               >
                 {/* Glow Overlay */}
-                {isActive && (
+                {itemIsActive && (
                   <span
                     className="absolute inset-0 rounded-full pointer-events-none"
                     style={{
