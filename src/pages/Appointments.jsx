@@ -1,8 +1,18 @@
+import AppointmentStats from "../components/appointments/AppointmentStats"
+import BookingLink from "../components/appointments/BookingLink"
+
 function Appointments() {
   return (
-    <div className="p-6">
-      <h1 className="text-3xl font-bold text-white mb-4">Appointments</h1>
-      <p className="text-slate-300">Appointments page content will go here.</p>
+    <div
+      className="min-h-screen -m-6 lg:-m-8 p-6 lg:p-8"
+      style={{
+        background: "linear-gradient(137.23deg, rgba(1.89, 5.94, 23.59, 1) -34.38%, rgba(22.25, 36.5, 85.6, 1) 54.595%, rgba(15, 23, 43, 1) 143.569%)",
+      }}
+    >
+      <div className="space-y-6">
+        <AppointmentStats />
+        <BookingLink />
+      </div>
     </div>
   )
 }
