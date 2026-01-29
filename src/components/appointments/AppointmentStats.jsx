@@ -50,7 +50,7 @@ function AppointmentStats() {
             <stat.icon size={18} style={{ color: stat.iconColor }} />
             <p className="text-slate-400 text-sm">{stat.title}</p>
           </div>
-          <p className="text-3xl font-semibold text-white mb-1">{stat.value}</p>
+          <p className="text-3xl text-white mb-1">{stat.value}</p>
           <p className="text-sm" style={{ color: stat.subtitleColor }}>
             {stat.subtitle}
           </p>

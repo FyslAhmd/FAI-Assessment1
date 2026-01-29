@@ -1,5 +1,6 @@
 import AppointmentStats from "../components/appointments/AppointmentStats"
 import BookingLink from "../components/appointments/BookingLink"
+import AppointmentsTable from "../components/appointments/AppointmentsTable"
 
 function Appointments() {
   return (
@@ -12,6 +13,7 @@ function Appointments() {
       <div className="space-y-6">
         <AppointmentStats />
         <BookingLink />
+        <AppointmentsTable />
       </div>
     </div>
   )
