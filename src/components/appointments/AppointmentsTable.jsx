@@ -111,28 +111,28 @@ function AppointmentsTable() {
           <table className="w-full">
             <thead>
               <tr style={{ borderBottom: "1px solid rgba(43, 127, 255, 0.2)" }}>
-                <th className="font-normal px-6 py-4 text-sm text-white text-center">
+                <th className="font-normal px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-white text-center whitespace-nowrap">
                   Client Name
                 </th>
-                <th className="font-normal px-6 py-4 text-sm text-white text-center">
+                <th className="font-normal px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-white text-center whitespace-nowrap">
                   Client Phone
                 </th>
-                <th className="font-normal px-6 py-4 text-sm text-white text-center">
+                <th className="font-normal px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-white text-center whitespace-nowrap hidden md:table-cell">
                   Client mail
                 </th>
-                <th className="font-normal px-6 py-4 text-sm text-white text-center">
+                <th className="font-normal px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-white text-center whitespace-nowrap">
                   Device
                 </th>
-                <th className="font-normal px-6 py-4 text-sm text-white text-center">
+                <th className="font-normal px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-white text-center whitespace-nowrap hidden sm:table-cell">
                   Repair Type
                 </th>
-                <th className="font-normal px-6 py-4 text-sm text-white text-center">
+                <th className="font-normal px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-white text-center whitespace-nowrap">
                   Date
                 </th>
-                <th className="font-normal px-6 py-4 text-sm text-white text-center">
+                <th className="font-normal px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-white text-center whitespace-nowrap hidden lg:table-cell">
                   Slot no
                 </th>
-                <th className="font-normal px-6 py-4 text-sm text-white text-center">
+                <th className="font-normal px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-white text-center whitespace-nowrap">
                   Start Time
                 </th>
               </tr>
@@ -148,28 +148,28 @@ function AppointmentsTable() {
                         : "none",
                   }}
                 >
-                  <td className="px-6 py-4 text-sm text-blue-400 text-center">
+                  <td className="px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-blue-400 text-center whitespace-nowrap">
                     {appointment.clientName}
                   </td>
-                  <td className="px-6 py-4 text-sm text-slate-300 text-center">
+                  <td className="px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-slate-300 text-center whitespace-nowrap">
                     {appointment.clientPhone}
                   </td>
-                  <td className="px-6 py-4 text-sm text-white text-center">
+                  <td className="px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-white text-center whitespace-nowrap hidden md:table-cell">
                     {appointment.clientMail}
                   </td>
-                  <td className="px-6 py-4 text-sm text-slate-300 text-center">
+                  <td className="px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-slate-300 text-center whitespace-nowrap">
                     {appointment.device}
                   </td>
-                  <td className="px-6 py-4 text-sm text-slate-300 text-center">
+                  <td className="px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-slate-300 text-center whitespace-nowrap hidden sm:table-cell">
                     {appointment.repairType}
                   </td>
-                  <td className="px-6 py-4 text-sm text-slate-300 text-center">
+                  <td className="px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-slate-300 text-center whitespace-nowrap">
                     {appointment.date}
                   </td>
-                  <td className="px-6 py-4 text-sm text-slate-300 text-center">
+                  <td className="px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-slate-300 text-center whitespace-nowrap hidden lg:table-cell">
                     {appointment.slotNo}
                   </td>
-                  <td className="px-6 py-4 text-sm text-slate-300 text-center">
+                  <td className="px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-slate-300 text-center whitespace-nowrap">
                     {appointment.startTime}
                   </td>
                 </tr>
@@ -179,14 +179,14 @@ function AppointmentsTable() {
         </div>
       </motion.div>
 
-      <div className="flex items-center justify-center gap-2 py-4">
+      <div className="flex items-center justify-center gap-1 sm:gap-2 py-3 sm:py-4">
         <button
           onClick={() => setCurrentPage((prev) => Math.max(1, prev - 1))}
           disabled={currentPage === 1}
-          className="flex items-center gap-1 px-3 py-2 text-sm text-slate-400 hover:text-white transition-colors disabled:opacity-50"
+          className="flex items-center gap-1 px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm text-slate-400 hover:text-white transition-colors disabled:opacity-50"
         >
-          <ChevronLeft size={16} />
-          Previous
+          <ChevronLeft size={14} className="sm:w-4 sm:h-4" />
+          <span className="hidden sm:inline">Previous</span>
         </button>
 
         {getPageNumbers().map((page, index) => (
@@ -194,7 +194,7 @@ function AppointmentsTable() {
             key={index}
             onClick={() => typeof page === "number" && setCurrentPage(page)}
             disabled={page === "..."}
-            className={`w-8 h-8 text-sm transition-colors ${
+            className={`w-6 h-6 sm:w-8 sm:h-8 text-xs sm:text-sm transition-colors ${
               page === currentPage
                 ? "bg-[#a7c8fe] text-[#001d6b]"
                 : "text-[#0f62fe]"
@@ -209,10 +209,10 @@ function AppointmentsTable() {
             setCurrentPage((prev) => Math.min(totalPages, prev + 1))
           }
           disabled={currentPage === totalPages}
-          className="flex items-center gap-1 px-3 py-2 text-sm text-blue-400 hover:text-blue-300 transition-colors disabled:opacity-50"
+          className="flex items-center gap-1 px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm text-blue-400 hover:text-blue-300 transition-colors disabled:opacity-50"
         >
-          Next
-          <ChevronRight size={16} />
+          <span className="hidden sm:inline">Next</span>
+          <ChevronRight size={14} className="sm:w-4 sm:h-4" />
         </button>
       </div>
     </>

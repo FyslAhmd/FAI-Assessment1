@@ -33,25 +33,25 @@ const statsData = [
 
 function AppointmentStats() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
       {statsData.map((stat, index) => (
         <motion.div
           key={stat.id}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: index * 0.1 }}
-          className="p-5 rounded-2xl"
+          className="p-4 sm:p-5 rounded-2xl"
           style={{
             background: "rgba(15, 23, 43, 0.5)",
             border: "1px solid rgba(43, 127, 255, 0.2)",
           }}
         >
-          <div className="flex items-center gap-2 mb-3">
-            <stat.icon size={18} style={{ color: stat.iconColor }} />
-            <p className="text-slate-400 text-sm">{stat.title}</p>
+          <div className="flex items-center gap-2 mb-2 sm:mb-3">
+            <stat.icon size={16} className="sm:w-[18px] sm:h-[18px]" style={{ color: stat.iconColor }} />
+            <p className="text-slate-400 text-xs sm:text-sm">{stat.title}</p>
           </div>
-          <p className="text-3xl text-white mb-1">{stat.value}</p>
-          <p className="text-sm" style={{ color: stat.subtitleColor }}>
+          <p className="text-2xl sm:text-3xl text-white mb-1">{stat.value}</p>
+          <p className="text-xs sm:text-sm" style={{ color: stat.subtitleColor }}>
             {stat.subtitle}
           </p>
         </motion.div>

@@ -99,7 +99,7 @@ function CallDetails({ call }) {
 
         <div>
           <div className="flex items-center gap-2 mb-3 sm:mb-4">
-            <FileText size={16} className="text-slate-400 sm:w-[18px] sm:h-[18px]" />
+            <FileText size={16} className="text-slate-400 sm:w-4.5 sm:h-4.5" />
             <p className="text-sm sm:text-base text-white ">Conversation Transcript</p>
           </div>
 
